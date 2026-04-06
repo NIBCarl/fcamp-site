@@ -11,7 +11,7 @@ export default function LoginPage() {
   }, undefined);
 
   return (
-    <div className="min-h-screen bg-surface flex flex-col items-center justify-center p-6">
+    <div className="min-h-[100dvh] bg-surface flex flex-col items-center justify-center p-6 pt-24 pb-12">
       <div className="max-w-md w-full bg-surface-container-lowest editorial-shadow rounded-2xl p-8 border border-outline-variant/20">
         <div className="text-center mb-8">
           <span className="text-secondary font-bold tracking-widest text-sm uppercase font-label block mb-2">

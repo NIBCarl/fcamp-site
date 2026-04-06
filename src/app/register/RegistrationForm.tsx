@@ -126,9 +126,6 @@ export default function RegistrationForm({ districts }: { districts: District[] 
                 </option>
               ))}
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-on-surface-variant">
-              <span className="material-symbols-outlined">expand_more</span>
-            </div>
           </div>
         </div>
 
@@ -148,9 +145,6 @@ export default function RegistrationForm({ districts }: { districts: District[] 
               <option value="Male">Male</option>
               <option value="Female">Female</option>
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-on-surface-variant">
-              <span className="material-symbols-outlined">expand_more</span>
-            </div>
           </div>
         </div>
       </div>
