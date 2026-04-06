@@ -3,34 +3,68 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Event",
+            "name": "Friendship Camping (FCAMP) Caraga Region",
+            "description": "A Seventh-day Adventist youth ministry camp in the Northeastern Mindanao Mission (NEMM) focusing on evangelism, leadership, and spiritual growth.",
+            "organizer": {
+              "@type": "Organization",
+              "name": "Northeastern Mindanao Mission (NEMM)",
+              "location": {
+                "@type": "Place",
+                "name": "NEMM Headquarters",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressLocality": "Baan",
+                  "addressRegion": "Butuan City",
+                  "addressCountry": "PH"
+                }
+              }
+            },
+            "about": [
+              {
+                "@type": "Thing",
+                "name": "Youth Evangelism"
+              },
+              {
+                "@type": "Thing",
+                "name": "Seventh-day Adventist Camp"
+              }
+            ]
+          })
+        }}
+      />
       {/* Full-bleed Hero Section */}
       <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            alt="Coastal Sunset"
+            alt="FCAMP Youth Gathering"
             className="w-full h-full object-cover brightness-75 scale-105"
-            data-alt="cinematic wide shot of a rugged coastline at sunset with golden orange light reflecting off the ocean waves and misty cliffs"
+            data-alt="cinematic wide shot of youth campers gathering around with warm sunset lighting"
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM2i_OkUDwahY2HOlAzxm7VGOotfdo4gnjeFF6cyvRc0zhaWQ_g7OwX1q4bMqhhCZMF9heWUzggQfWwAWBVxBmYgi8ll0tuRSuQpwzpGD2mzMGlSgWDSd8xB-o6XMIv5ZCNf29nnzATTsFExiffxNts6jZHgd5-3-ogfbd4UnSfv7U7cixs5yhkZR_ybOobGkcV92_FlMWq1ZVYMSsjrX3w3NIHuLnlykm-_OWQDZJOSCAL0keXWihFFvAi-5spd2ryqrTa9mq8ReU"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-background"></div>
         </div>
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <h1 className="font-headline text-6xl md:text-8xl font-black text-white tracking-tighter mb-6 drop-shadow-2xl">
-            FCAMP
+            FCAMP NEMM
           </h1>
           <p className="font-body text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
-            Adventurous spirit, coastal serenity, and a journey of faith under
-            the horizon.
+            Friendship Camping: A specialized youth ministry in Caraga spreading faith, building leaders, and fostering lifelong friendships.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
               href="/register"
               className="bg-primary-container hover:bg-primary text-white font-bold py-4 px-10 rounded-lg text-lg transition-all editorial-shadow active:scale-95 duration-150 inline-block"
             >
-              Register Now
+              Join The Journey
             </a>
             <button className="bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold py-4 px-10 rounded-lg text-lg hover:bg-white/20 transition-all">
-              Watch Journey
+              Watch Highlight
             </button>
           </div>
         </div>
@@ -50,14 +84,13 @@ export default function Home() {
               <span className="text-secondary font-bold tracking-widest text-sm uppercase font-label block mb-4">
                 OUR MINISTRY
               </span>
-              <h2 className="font-headline text-5xl md:text-6xl font-black text-on-surface tracking-tighter leading-none">
-                The Windswept <br />{" "}
-                <span className="text-primary">Horizon Experience</span>
+              <h2 className="font-headline text-4xl md:text-6xl font-black text-on-surface tracking-tighter leading-none">
+                Faith, Friendship, <br />{" "}
+                <span className="text-primary">and Evangelism</span>
               </h2>
             </div>
             <p className="font-body text-lg text-on-surface-variant max-w-sm mb-2">
-              Discover a ministry designed for the modern youth—bold in
-              adventure and deep in spiritual roots.
+              A year-round Seventh-day Adventist youth program connecting teens with genuine faith in a warm, engaging environment.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -69,12 +102,10 @@ export default function Home() {
                 </span>
               </div>
               <h3 className="font-headline text-2xl font-bold text-on-surface mb-4">
-                Spiritual Roots
+                4-Phase Program
               </h3>
               <p className="font-body text-on-surface-variant leading-relaxed">
-                Connecting youth with their Creator through intentional worship,
-                coastal meditations, and deep-dive scripture sessions by the
-                campfire.
+                A structured journey: Spirituality preparation year-round, intensive Leadership Specialization, the highly-anticipated Camp Proper in July, and continuous Sustainability follow-ups.
               </p>
               <div className="mt-8 flex items-center gap-2 text-primary font-bold cursor-pointer">
                 <span className="text-sm">Learn More</span>
@@ -92,18 +123,17 @@ export default function Home() {
                 </span>
               </div>
               <h3 className="font-headline text-2xl font-bold text-on-surface mb-4">
-                Adventure & Growth
+                Interactive Activities
               </h3>
               <p className="font-body text-on-surface-variant leading-relaxed">
-                Pushing physical boundaries with coastal hiking, kayaking, and
-                team challenges that build resilience and lifelong brotherhood.
+                Engaging challenges designed to break the ice and build bonds, featuring Trust Falls, knot-tying, and deep group discussions on health, family, and spiritual doctrines.
               </p>
               <div className="mt-8 flex flex-wrap gap-2">
                 <span className="bg-secondary-container/10 text-secondary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                  Hiking
+                  Trust Falls
                 </span>
                 <span className="bg-secondary-container/10 text-secondary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-                  Canoeing
+                  Group discussions
                 </span>
               </div>
             </div>
@@ -116,32 +146,12 @@ export default function Home() {
                 </span>
               </div>
               <h3 className="font-headline text-2xl font-bold text-on-surface mb-4">
-                Global Community
+                Massive Regional Impact
               </h3>
               <p className="font-body text-on-surface-variant leading-relaxed">
-                Join a vibrant network of Adventist youth from across the region.
-                Build lasting friendships founded on shared values and purpose.
+                With a record turnout of 1,684 non-Adventist participants across Agusan del Norte, Dinagat Islands, and Surigao del Norte, FCAMP is expanding the community.
               </p>
-              <div className="mt-8 flex items-center -space-x-3 overflow-hidden">
-                <img
-                  alt="Avatar 1"
-                  className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYildOqIwx3I4kguyCydcMZ0CfKtUrvqLO7ap86j3zKyCXloYdWQrTDG2jRwR-AeU2fs2n8ZNTAI269dFgeHJhdXtlLB339yDnIkJQ28hyHTzzsZi1CK5rTL1YTM1HVr0gxCOBicCd2LhCCa_9F0MqI_7TMFZcjt4Zh70VjOUBtU8ioEnn8_SzN8lnpMs3611tKMjCDjL8Nox6bKKi3YQm8C6AJq1b73xJtAKq86gtbuu8nksNafKljFQ26_lrjVxVq_D5ZrrzqVep"
-                />
-                <img
-                  alt="Avatar 2"
-                  className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuATYRyGsDY7rXmnuNVa7G3aIj_vt-EpewIwpB_7T44t6EA7iuVHjl3zBRFr3gtBp0gYzfzv747fpXy7dRhZoLGdjzEMIFOUtwhqWG5Y88HQ6ZhwBmYFhXUKYUjZTMwHe0oGuhcHGtOw4CvvM08atkb0E3SVuwsyGb55LhvxjqYE90HoDuBxhB2AdsvRh1-rFVo1mGXoejZ7R9vFY4HIUDMXQb_LD6-G_XU9md8m2UdFqk1VEiztLFgohIVp4QWMiLhgzudGMEecH4WT"
-                />
-                <img
-                  alt="Avatar 3"
-                  className="inline-block h-10 w-10 rounded-full ring-2 ring-white"
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3pR_rdWMJY0HeG8oCHyLcpK5ulXesWCoXk5rS-2kxeEH66SidFrqAwnrctNKKdRkVW073Th5Z7D0T07TEwTSwfjtH8zcW0Qyu-i4TgSs1B4Yy2eg4OLS25rFxZp0PR6zFJ_bKcImhFvWpdsHU9Q1QEIPM6O-J2CqMsoXa9IyeoW2pgC7pnIkIowJvq9AlxwRF6O_Qi09I2VxhFvSQLUHY8ZXI5XAgtJJJ6s832Wd3Zsg-Ioy_RZEBpA_jrth2E2ZbeEL5AZzxwiLr"
-                />
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-surface-container-highest text-xs font-bold text-on-surface ring-2 ring-white">
-                  +2k
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
@@ -153,7 +163,7 @@ export default function Home() {
           <div className="relative group">
             <div className="aspect-[4/5] overflow-hidden rounded-xl">
               <img
-                alt="Adventure Journey"
+                alt="FCAMP Youth Activity"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ7DJ3PdFPcAlCzcoWxzXSeOfaeOSyQHLOe2XymC7oHjYNdDtpi8bImMhwHAylYrdk3vQl2GWgiol4CSU-LAHMfUAKUTk5dLUjX3xif0zIK9c6eUCSEa_dLH9ROaAPU1j4a8b-9mnujaa4Bz6gTBv3EOlzGrDnZtOxgn7dGllO_V9vBLvKr2ZP9MYx7zAQpGkeBdlWANtf5cbd7BzJLuGZ0xNCZhiSFPwHQnpeyFCpTK2tRBNXhOERWJWryN1csBHalwsGhNyAfAJ4"
               />
@@ -163,19 +173,16 @@ export default function Home() {
                 format_quote
               </span>
               <p className="font-headline text-2xl font-bold leading-tight italic">
-                &quot;The mountains are calling, and we must go with a heart for
-                service.&quot;
+                &quot;Evangelism through relationship building, mentoring the leaders of tomorrow.&quot;
               </p>
             </div>
           </div>
           <div className="md:pl-16">
             <h2 className="font-headline text-4xl md:text-5xl font-black mb-8 text-on-surface tracking-tight">
-              Our Mission is <br /> Your Transformation.
+              A Safe Space for <br /> Spiritual Discovery.
             </h2>
             <p className="font-body text-lg text-on-surface-variant mb-8 leading-relaxed">
-              FCAMP isn&apos;t just a destination; it&apos;s a crucible for character
-              development. We believe that in the silence of the coast and the
-              challenge of the climb, the voice of the Spirit becomes clear.
+              Under the leadership of Pastor Anecito C. Pableo, FCAMP coordinates 12 core teams to deliver an unforgettable one-week camping experience. Designed for youth 13-18, the program promotes the teachings of Jesus in daily life through engaging mentorship.
             </p>
             <ul className="space-y-4 mb-10">
               <li className="flex items-center gap-3">
@@ -186,7 +193,7 @@ export default function Home() {
                   check_circle
                 </span>
                 <span className="font-semibold">
-                  Professional Leadership Training
+                  Spiritual Renewal & Mentoring
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -197,7 +204,7 @@ export default function Home() {
                   check_circle
                 </span>
                 <span className="font-semibold">
-                  Wilderness Safety Certification
+                  Year-Round Nurturing
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -207,7 +214,7 @@ export default function Home() {
                 >
                   check_circle
                 </span>
-                <span className="font-semibold">Biblical Theology Workshops</span>
+                <span className="font-semibold">Cultivating Lasting Friendships</span>
               </li>
             </ul>
           </div>

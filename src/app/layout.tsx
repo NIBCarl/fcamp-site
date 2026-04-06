@@ -38,10 +38,10 @@ export default function RootLayout({
         <nav className="fixed top-0 w-full z-50 bg-[#f4f2ee] border-b border-outline-variant/20 shadow-sm">
           <div className="flex justify-between items-center px-4 sm:px-6 py-2 max-w-7xl mx-auto">
             <a href="/" className="relative flex items-center h-12 w-24 sm:h-16 sm:w-40 z-50">
-              <img 
-                src="/logo.png" 
-                alt="FCAMP Logo" 
-                className="absolute top-1/2 left-0 -translate-y-1/2 h-32 sm:h-48 w-auto object-contain mix-blend-multiply pointer-events-none" 
+              <img
+                src="/logo.png"
+                alt="FCAMP Logo"
+                className="absolute top-1/2 left-0 -translate-y-1/2 h-32 sm:h-48 w-auto object-contain mix-blend-multiply pointer-events-none"
               />
             </a>
             <div className="hidden lg:flex items-center space-x-8">
@@ -120,7 +120,7 @@ export default function RootLayout({
             </div>
             <div className="text-center md:text-right">
               <p className="text-sm font-medium text-slate-500 dark:text-slate-400 font-body">
-                © 2024 FCAMP Adventist Youth Ministry. All rights reserved.
+                © 2026 FCAMP Adventist Youth Ministry. All rights reserved.
               </p>
             </div>
           </div>
