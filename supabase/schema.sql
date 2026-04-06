@@ -45,10 +45,21 @@ CREATE TABLE admin_roles (
 -- Enable RLS on profiles
 ALTER TABLE profiles ENABLE ROW LEVEL SECURITY;
 
--- Public can insert profiles
-CREATE POLICY "Public can insert profiles" ON profiles
+-- Insert Policy: Anon can insert anywhere. Global Admins can insert anywhere. District Admins are restricted.
+DROP POLICY IF EXISTS "Public can insert profiles" ON profiles;
+CREATE POLICY "Profiles insert policy" ON profiles
   FOR INSERT
-  WITH CHECK (true);
+  WITH CHECK (
+    auth.uid() IS NULL OR
+    EXISTS (
+      SELECT 1 FROM admin_roles
+      WHERE admin_roles.user_id = auth.uid()
+      AND (
+        admin_roles.role = 'global' OR
+        (admin_roles.role = 'district' AND admin_roles.district_id = profiles.district_id)
+      )
+    )
+  );
 
 -- Admins can view/update profiles
 CREATE POLICY "Global admins can view all profiles" ON profiles
@@ -85,6 +96,14 @@ CREATE POLICY "District admins can view their district profiles" ON profiles
 CREATE POLICY "District admins can update their district profiles" ON profiles
   FOR UPDATE
   USING (
+    EXISTS (
+      SELECT 1 FROM admin_roles
+      WHERE admin_roles.user_id = auth.uid()
+      AND admin_roles.role = 'district'
+      AND admin_roles.district_id = profiles.district_id
+    )
+  )
+  WITH CHECK (
     EXISTS (
       SELECT 1 FROM admin_roles
       WHERE admin_roles.user_id = auth.uid()

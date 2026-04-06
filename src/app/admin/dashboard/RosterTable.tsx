@@ -39,6 +39,10 @@ export default function RosterTable({
   const [selectedProfile, setSelectedProfile] = useState<Profile | null>(null);
   const [isSaving, setIsSaving] = useState(false);
 
+  // Admin Management State
+  const [isAdminModalOpen, setIsAdminModalOpen] = useState(false);
+  const [isAdminSaving, setIsAdminSaving] = useState(false);
+
   const filteredProfiles = profiles.filter((p) => {
     // Search
     const fullName = `${p.first_name} ${p.last_name}`.toLowerCase();
@@ -163,18 +167,59 @@ export default function RosterTable({
     }
   }
 
+  function openAdminModal() {
+    setIsAdminModalOpen(true);
+  }
+
+  async function handleAdminModalSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setIsAdminSaving(true);
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+    const district_id = parseInt(formData.get("district_id") as string, 10);
+
+    try {
+      const resp = await fetch("/api/admin/create-account", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password, district_id })
+      });
+      const data = await resp.json();
+      if (!resp.ok) throw new Error(data.error);
+      alert("District Admin account created successfully!");
+      setIsAdminModalOpen(false);
+    } catch (err: any) {
+      console.error(err);
+      alert(`Failed: ${err.message}`);
+    } finally {
+      setIsAdminSaving(false);
+    }
+  }
+
   return (
     <div>
       <div className="p-6 border-b border-outline-variant/20 bg-surface-bright">
-        <div className="flex justify-between items-center mb-6">
+        <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4 mb-6">
           <h2 className="font-headline text-2xl font-bold text-on-surface">Manage Roster</h2>
-          <button 
-            onClick={openAddModal}
-            className="bg-primary hover:bg-primary-container text-white px-4 py-2 rounded-lg font-bold transition-all text-sm flex items-center gap-2"
-          >
-            <span className="material-symbols-outlined text-[20px]">add</span>
-            Add Attendee
-          </button>
+          <div className="flex flex-wrap gap-2 w-full sm:w-auto">
+            {adminRole === 'global' && (
+              <button 
+                onClick={openAdminModal}
+                className="flex-1 sm:flex-none justify-center bg-surface-container-highest text-on-surface-variant hover:bg-surface-variant px-4 py-2 rounded-lg font-bold transition-all text-sm flex items-center gap-2"
+              >
+                <span className="material-symbols-outlined text-[20px]">admin_panel_settings</span>
+                Manage Admins
+              </button>
+            )}
+            <button 
+              onClick={openAddModal}
+              className="flex-1 sm:flex-none justify-center bg-primary hover:bg-primary-container text-white px-4 py-2 rounded-lg font-bold transition-all text-sm flex items-center gap-2"
+            >
+              <span className="material-symbols-outlined text-[20px]">add</span>
+              Add Attendee
+            </button>
+          </div>
         </div>
         <div className="flex flex-col xl:flex-row justify-between items-start xl:items-center gap-4 mb-6">
           <div className="relative w-full xl:max-w-md">
@@ -343,19 +388,21 @@ export default function RosterTable({
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-          <div className="bg-surface-container-lowest w-full max-w-md rounded-2xl p-6 shadow-2xl relative">
-            <button 
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface"
-            >
-              <span className="material-symbols-outlined">close</span>
-            </button>
-            <h3 className="font-headline text-xl font-bold mb-4 text-on-surface">
-              {modalMode === "add" ? "Add New Attendee" : "Edit Attendee"}
-            </h3>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setIsModalOpen(false)}></div>
+          <div className="animate-in fade-in zoom-in duration-200 ease-out z-10 w-full max-w-2xl">
+            <div className="bg-surface-container-lowest w-full rounded-2xl p-5 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+              <button 
+                onClick={() => setIsModalOpen(false)}
+                className="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface"
+              >
+                <span className="material-symbols-outlined">close</span>
+              </button>
+              <h3 className="font-headline text-xl font-bold mb-4 text-on-surface">
+                {modalMode === "add" ? "Add New Attendee" : "Edit Attendee"}
+              </h3>
             
-            <form onSubmit={handleModalSubmit} className="space-y-4">
+              <form onSubmit={handleModalSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-bold text-on-surface mb-1" htmlFor="first_name">First Name</label>
@@ -409,6 +456,63 @@ export default function RosterTable({
                 {modalMode === "add" ? "Add Attendee" : "Save Changes"}
               </button>
             </form>
+          </div>
+        </div>
+      </div>
+      )}
+
+      {isAdminModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={() => setIsAdminModalOpen(false)}></div>
+          <div className="animate-in fade-in zoom-in duration-200 ease-out z-10 w-full max-w-md">
+            <div className="bg-surface-container-lowest w-full max-w-md rounded-2xl p-5 sm:p-8 shadow-2xl relative">
+              <button 
+                onClick={() => setIsAdminModalOpen(false)}
+                className="absolute top-4 right-4 text-on-surface-variant hover:text-on-surface"
+              >
+                <span className="material-symbols-outlined">close</span>
+              </button>
+              <h3 className="font-headline text-xl font-bold mb-4 text-on-surface flex items-center gap-2">
+                <span className="material-symbols-outlined text-primary">admin_panel_settings</span>
+                Add District Admin
+              </h3>
+              
+              <form onSubmit={handleAdminModalSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-sm font-bold text-on-surface mb-1" htmlFor="email">Email</label>
+                  <input required type="email" id="email" name="email" className="w-full px-3 py-2 rounded-lg border-outline-variant bg-surface-bright outline-none focus:ring-2 focus:ring-primary" />
+                </div>
+                <div>
+                  <label className="block text-sm font-bold text-on-surface mb-1" htmlFor="password">Password (min 6 chars)</label>
+                  <input required type="password" id="password" name="password" minLength={6} className="w-full px-3 py-2 rounded-lg border-outline-variant bg-surface-bright outline-none focus:ring-2 focus:ring-primary" />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-bold text-on-surface mb-1" htmlFor="admin_district_id">Assigned District</label>
+                  <select 
+                    required 
+                    defaultValue="" 
+                    id="admin_district_id" 
+                    name="district_id" 
+                    className="w-full px-3 py-2 rounded-lg border-outline-variant bg-surface-bright outline-none focus:ring-2 focus:ring-primary"
+                  >
+                    <option value="" disabled>Select District</option>
+                    {districts.map(d => (
+                      <option key={d.id} value={d.id}>{d.name}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <button 
+                  type="submit" 
+                  disabled={isAdminSaving}
+                  className="w-full mt-4 bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary-container transition-all flex justify-center items-center gap-2"
+                >
+                  {isAdminSaving ? <span className="material-symbols-outlined animate-spin text-[20px]">refresh</span> : null}
+                  Create Admin Account
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       )}

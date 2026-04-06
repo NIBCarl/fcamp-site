@@ -35,15 +35,16 @@ export default function RootLayout({
       <body
         className={`${outfit.variable} ${plusJakartaSans.variable} bg-background text-on-surface font-body selection:bg-primary-container selection:text-white antialiased`}
       >
-        <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm shadow-slate-200/50 dark:shadow-none">
-          <div className="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
-            <a
-              className="text-2xl font-black tracking-tighter text-orange-600 dark:text-orange-500 font-headline"
-              href="/"
-            >
-              FCAMP
+        <nav className="fixed top-0 w-full z-50 bg-[#f4f2ee] border-b border-outline-variant/20 shadow-sm">
+          <div className="flex justify-between items-center px-4 sm:px-6 py-2 max-w-7xl mx-auto">
+            <a href="/" className="relative flex items-center h-12 w-24 sm:h-16 sm:w-40 z-50">
+              <img 
+                src="/logo.png" 
+                alt="FCAMP Logo" 
+                className="absolute top-1/2 left-0 -translate-y-1/2 h-32 sm:h-48 w-auto object-contain mix-blend-multiply pointer-events-none" 
+              />
             </a>
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden lg:flex items-center space-x-8">
               <a
                 className="text-orange-600 dark:text-orange-400 font-bold border-b-2 border-orange-600 transition-colors"
                 href="/"

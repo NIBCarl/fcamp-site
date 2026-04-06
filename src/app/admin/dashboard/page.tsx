@@ -2,6 +2,7 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import RosterTable from "./RosterTable";
 import MediaManager from "./MediaManager";
+import LogoutButton from "@/components/LogoutButton";
 
 export default async function AdminDashboard() {
   const supabase = await createClient();
@@ -53,14 +54,17 @@ export default async function AdminDashboard() {
   }
 
   return (
-    <div className="min-h-screen bg-surface flex flex-col pt-24 pb-12 px-6">
+    <div className="min-h-screen bg-surface flex flex-col pt-24 pb-12 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto w-full flex-grow">
         <header className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <span className="text-secondary font-bold tracking-widest text-sm uppercase font-label block mb-2">
-              Management Portal {isGlobalAdmin ? "(Global)" : "(District)"}
-            </span>
-            <h1 className="font-headline text-4xl font-bold text-on-surface">
+            <div className="flex items-center gap-3 mb-2">
+              <span className="text-secondary font-bold tracking-widest text-sm uppercase font-label block">
+                Management Portal {isGlobalAdmin ? "(Global)" : "(District)"}
+              </span>
+              <LogoutButton />
+            </div>
+            <h1 className="font-headline text-3xl sm:text-4xl font-bold text-on-surface">
               Attendee Roster
             </h1>
           </div>
