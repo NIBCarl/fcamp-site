@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>FCAMP | Adventist Youth Ministry</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#e6e8ea",
+                        "surface-container": "#eceef0",
+                        "surface-container-highest": "#e0e3e5",
+                        "on-surface": "#191c1e",
+                        "on-primary-container": "#582200",
+                        "inverse-primary": "#ffb690",
+                        "outline": "#8c7164",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "surface-tint": "#9d4300",
+                        "on-tertiary-fixed": "#131b2e",
+                        "on-background": "#191c1e",
+                        "primary-container": "#f97316",
+                        "secondary": "#8127cf",
+                        "inverse-surface": "#2d3133",
+                        "on-secondary-container": "#fffbff",
+                        "surface-container-low": "#f2f4f6",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary-fixed": "#2c0051",
+                        "on-primary-fixed-variant": "#783200",
+                        "background": "#f7f9fb",
+                        "secondary-fixed": "#f0dbff",
+                        "surface-variant": "#e0e3e5",
+                        "on-tertiary-container": "#2a3246",
+                        "on-surface-variant": "#584237",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "primary-fixed-dim": "#ffb690",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-secondary-fixed-variant": "#6900b3",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#ddb7ff",
+                        "secondary-container": "#9c48ea",
+                        "tertiary": "#565e74",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "primary": "#9d4300",
+                        "tertiary-fixed": "#dae2fd",
+                        "primary-fixed": "#ffdbca",
+                        "outline-variant": "#e0c0b1",
+                        "tertiary-container": "#929ab2",
+                        "on-error": "#ffffff",
+                        "surface": "#f7f9fb",
+                        "surface-dim": "#d8dadc",
+                        "on-primary-fixed": "#341100"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Outfit"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .editorial-shadow {
+            box-shadow: 0 10px 40px -10px rgba(25, 28, 30, 0.06);
+        }
+
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-white">
+    <!-- TopNavBar -->
+    <nav
+        class="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl shadow-sm shadow-slate-200/50 dark:shadow-none">
+        <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+            <a class="text-2xl font-black tracking-tighter text-orange-600 dark:text-orange-500 font-headline"
+                href="#">FCAMP</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a class="text-orange-600 dark:text-orange-400 font-bold border-b-2 border-orange-600 transition-colors"
+                    href="#">About</a>
+                <a class="text-slate-600 dark:text-slate-400 font-medium hover:text-orange-500 dark:hover:text-orange-300 transition-colors"
+                    href="#">Camps</a>
+                <a class="text-slate-600 dark:text-slate-400 font-medium hover:text-orange-500 dark:hover:text-orange-300 transition-colors"
+                    href="#">Schedule</a>
+                <a class="text-slate-600 dark:text-slate-400 font-medium hover:text-orange-500 dark:hover:text-orange-300 transition-colors"
+                    href="#">Community</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button
+                    class="bg-primary-container text-on-primary font-bold px-6 py-2.5 rounded-lg active:scale-95 duration-150 transition-all shadow-lg shadow-primary/20">
+                    Register
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <!-- Full-bleed Hero Section -->
+        <section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 z-0">
+                <img alt="Coastal Sunset" class="w-full h-full object-cover brightness-75 scale-105"
+                    data-alt="cinematic wide shot of a rugged coastline at sunset with golden orange light reflecting off the ocean waves and misty cliffs"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM2i_OkUDwahY2HOlAzxm7VGOotfdo4gnjeFF6cyvRc0zhaWQ_g7OwX1q4bMqhhCZMF9heWUzggQfWwAWBVxBmYgi8ll0tuRSuQpwzpGD2mzMGlSgWDSd8xB-o6XMIv5ZCNf29nnzATTsFExiffxNts6jZHgd5-3-ogfbd4UnSfv7U7cixs5yhkZR_ybOobGkcV92_FlMWq1ZVYMSsjrX3w3NIHuLnlykm-_OWQDZJOSCAL0keXWihFFvAi-5spd2ryqrTa9mq8ReU" />
+                <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-background"></div>
+            </div>
+            <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
+                <h1
+                    class="font-headline text-6xl md:text-8xl font-black text-white tracking-tighter mb-6 drop-shadow-2xl">
+                    FCAMP
+                </h1>
+                <p
+                    class="font-body text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
+                    Adventurous spirit, coastal serenity, and a journey of faith under the horizon.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button
+                        class="bg-primary-container hover:bg-primary text-white font-bold py-4 px-10 rounded-lg text-lg transition-all editorial-shadow active:scale-95 duration-150">
+                        Register Now
+                    </button>
+                    <button
+                        class="bg-white/10 backdrop-blur-md border border-white/20 text-white font-semibold py-4 px-10 rounded-lg text-lg hover:bg-white/20 transition-all">
+                        Watch Journey
+                    </button>
+                </div>
+            </div>
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+                <span class="material-symbols-outlined text-white text-3xl">keyboard_double_arrow_down</span>
+            </div>
+        </section>
+        <!-- About Section (3-Column Bento-ish Layout) -->
+        <section class="py-24 px-6 md:px-12 bg-background relative overflow-hidden">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
+                    <div class="max-w-2xl">
+                        <span
+                            class="text-secondary font-bold tracking-widest text-sm uppercase font-label block mb-4">OUR
+                            MINISTRY</span>
+                        <h2
+                            class="font-headline text-5xl md:text-6xl font-black text-on-surface tracking-tighter leading-none">
+                            The Windswept <br /> <span class="text-primary">Horizon Experience</span>
+                        </h2>
+                    </div>
+                    <p class="font-body text-lg text-on-surface-variant max-w-sm mb-2">
+                        Discover a ministry designed for the modern youth—bold in adventure and deep in spiritual roots.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Column 1: Spiritual Roots -->
+                    <div
+                        class="group p-8 rounded-xl bg-surface-container-lowest editorial-shadow border border-outline-variant/10 hover:translate-y-[-8px] transition-all duration-300">
+                        <div class="w-14 h-14 rounded-full bg-secondary-fixed flex items-center justify-center mb-8">
+                            <span class="material-symbols-outlined text-secondary text-3xl">auto_awesome</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-bold text-on-surface mb-4">Spiritual Roots</h3>
+                        <p class="font-body text-on-surface-variant leading-relaxed">
+                            Connecting youth with their Creator through intentional worship, coastal meditations, and
+                            deep-dive scripture sessions by the campfire.
+                        </p>
+                        <div class="mt-8 flex items-center gap-2 text-primary font-bold cursor-pointer">
+                            <span class="text-sm">Learn More</span>
+                            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </div>
+                    </div>
+                    <!-- Column 2: Adventure & Growth -->
+                    <div
+                        class="group p-8 rounded-xl bg-surface-container-low border border-outline-variant/10 hover:translate-y-[-8px] transition-all duration-300">
+                        <div class="w-14 h-14 rounded-full bg-primary-fixed flex items-center justify-center mb-8">
+                            <span class="material-symbols-outlined text-primary text-3xl">landscape</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-bold text-on-surface mb-4">Adventure &amp; Growth</h3>
+                        <p class="font-body text-on-surface-variant leading-relaxed">
+                            Pushing physical boundaries with coastal hiking, kayaking, and team challenges that build
+                            resilience and lifelong brotherhood.
+                        </p>
+                        <div class="mt-8 flex flex-wrap gap-2">
+                            <span
+                                class="bg-secondary-container/10 text-secondary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Hiking</span>
+                            <span
+                                class="bg-secondary-container/10 text-secondary text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Canoeing</span>
+                        </div>
+                    </div>
+                    <!-- Column 3: Global Community -->
+                    <div
+                        class="group p-8 rounded-xl bg-surface-container-lowest editorial-shadow border border-outline-variant/10 hover:translate-y-[-8px] transition-all duration-300">
+                        <div class="w-14 h-14 rounded-full bg-tertiary-fixed flex items-center justify-center mb-8">
+                            <span class="material-symbols-outlined text-tertiary text-3xl">groups</span>
+                        </div>
+                        <h3 class="font-headline text-2xl font-bold text-on-surface mb-4">Global Community</h3>
+                        <p class="font-body text-on-surface-variant leading-relaxed">
+                            Join a vibrant network of Adventist youth from across the region. Build lasting friendships
+                            founded on shared values and purpose.
+                        </p>
+                        <div class="mt-8 flex items-center -space-x-3 overflow-hidden">
+                            <img alt="Avatar 1" class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
+                                data-alt="portrait of a young woman smiling outdoors"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYildOqIwx3I4kguyCydcMZ0CfKtUrvqLO7ap86j3zKyCXloYdWQrTDG2jRwR-AeU2fs2n8ZNTAI269dFgeHJhdXtlLB339yDnIkJQ28hyHTzzsZi1CK5rTL1YTM1HVr0gxCOBicCd2LhCCa_9F0MqI_7TMFZcjt4Zh70VjOUBtU8ioEnn8_SzN8lnpMs3611tKMjCDjL8Nox6bKKi3YQm8C6AJq1b73xJtAKq86gtbuu8nksNafKljFQ26_lrjVxVq_D5ZrrzqVep" />
+                            <img alt="Avatar 2" class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
+                                data-alt="portrait of a young man in casual attire"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuATYRyGsDY7rXmnuNVa7G3aIj_vt-EpewIwpB_7T44t6EA7iuVHjl3zBRFr3gtBp0gYzfzv747fpXy7dRhZoLGdjzEMIFOUtwhqWG5Y88HQ6ZhwBmYFhXUKYUjZTMwHe0oGuhcHGtOw4CvvM08atkb0E3SVuwsyGb55LhvxjqYE90HoDuBxhB2AdsvRh1-rFVo1mGXoejZ7R9vFY4HIUDMXQb_LD6-G_XU9md8m2UdFqk1VEiztLFgohIVp4QWMiLhgzudGMEecH4WT" />
+                            <img alt="Avatar 3" class="inline-block h-10 w-10 rounded-full ring-2 ring-white"
+                                data-alt="portrait of a woman in a park"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3pR_rdWMJY0HeG8oCHyLcpK5ulXesWCoXk5rS-2kxeEH66SidFrqAwnrctNKKdRkVW073Th5Z7D0T07TEwTSwfjtH8zcW0Qyu-i4TgSs1B4Yy2eg4OLS25rFxZp0PR6zFJ_bKcImhFvWpdsHU9Q1QEIPM6O-J2CqMsoXa9IyeoW2pgC7pnIkIowJvq9AlxwRF6O_Qi09I2VxhFvSQLUHY8ZXI5XAgtJJJ6s832Wd3Zsg-Ioy_RZEBpA_jrth2E2ZbeEL5AZzxwiLr" />
+                            <div
+                                class="flex h-10 w-10 items-center justify-center rounded-full bg-surface-container-highest text-xs font-bold text-on-surface ring-2 ring-white">
+                                +2k</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Signature Quote (Editorial Style) -->
+        <section class="py-24 bg-surface-container-lowest">
+            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="relative group">
+                    <div class="aspect-[4/5] overflow-hidden rounded-xl">
+                        <img alt="Adventure Journey"
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            data-alt="a group of hikers looking out over a mountain lake at sunrise with misty mountains in the background"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZ7DJ3PdFPcAlCzcoWxzXSeOfaeOSyQHLOe2XymC7oHjYNdDtpi8bImMhwHAylYrdk3vQl2GWgiol4CSU-LAHMfUAKUTk5dLUjX3xif0zIK9c6eUCSEa_dLH9ROaAPU1j4a8b-9mnujaa4Bz6gTBv3EOlzGrDnZtOxgn7dGllO_V9vBLvKr2ZP9MYx7zAQpGkeBdlWANtf5cbd7BzJLuGZ0xNCZhiSFPwHQnpeyFCpTK2tRBNXhOERWJWryN1csBHalwsGhNyAfAJ4" />
+                    </div>
+                    <div
+                        class="absolute -bottom-6 -right-6 md:-right-12 bg-primary-container p-8 md:p-12 rounded-xl text-white editorial-shadow max-w-[280px] md:max-w-sm">
+                        <span class="material-symbols-outlined text-4xl mb-4">format_quote</span>
+                        <p class="font-headline text-2xl font-bold leading-tight italic">
+                            "The mountains are calling, and we must go with a heart for service."
+                        </p>
+                    </div>
+                </div>
+                <div class="md:pl-16">
+                    <h2 class="font-headline text-4xl md:text-5xl font-black mb-8 text-on-surface tracking-tight">Our
+                        Mission is <br /> Your Transformation.</h2>
+                    <p class="font-body text-lg text-on-surface-variant mb-8 leading-relaxed">
+                        FCAMP isn't just a destination; it's a crucible for character development. We believe that in
+                        the silence of the coast and the challenge of the climb, the voice of the Spirit becomes clear.
+                    </p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary"
+                                style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            <span class="font-semibold">Professional Leadership Training</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary"
+                                style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            <span class="font-semibold">Wilderness Safety Certification</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary"
+                                style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            <span class="font-semibold">Biblical Theology Workshops</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-slate-50 dark:bg-slate-950 w-full border-t border-slate-200/15">
+        <div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 w-full max-w-7xl mx-auto">
+            <div class="mb-8 md:mb-0 text-center md:text-left">
+                <span class="text-lg font-bold text-slate-900 dark:text-slate-100 font-headline mb-2 block">FCAMP</span>
+                <p class="text-sm font-medium plusJakartaSans text-slate-500 dark:text-slate-400 max-w-xs">
+                    Inspiring the next generation through nature-driven faith adventures.
+                </p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-12 mb-8 md:mb-0">
+                <a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 transition-colors text-sm font-medium"
+                    href="#">Privacy Policy</a>
+                <a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 transition-colors text-sm font-medium"
+                    href="#">Terms of Service</a>
+                <a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 transition-colors text-sm font-medium"
+                    href="#">Contact Us</a>
+                <a class="text-slate-500 dark:text-slate-400 hover:text-orange-500 transition-colors text-sm font-medium"
+                    href="#">Ministry Map</a>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="text-sm font-medium plusJakartaSans text-slate-500 dark:text-slate-400">
+                    © 2024 FCAMP Adventist Youth Ministry. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
